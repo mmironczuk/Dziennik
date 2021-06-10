@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Dziennik.Models.Ocena>
+
+@{
+    ViewData["Title"] = "Oceny ucznia";
+}
+
+<h1>Oceny ucznia</h1>
+<div class="justify-content-center mb-12">
+    @using (Html.BeginForm("OcenyUcznia", "Oceny", FormMethod.Post))
+    {
+        <table style="text-align:center">
+            <tr>
+                <td>Data rozpoczęcia: <input type="date" name="DateFirst" style="padding:5px" /></td>
+                <td>Data zakończenia: <input type="date" name="DateSecond" style="padding:5px" /></td>
+                <td><button class="btn btn btn-primary">Sortuj</button></td>
+            </tr>
+        </table>
+    }
+</div>
+<h3 style="text-align:center; color:white">@ViewBag.Message</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Przedmiot
+            </th>
+            <th>
+                Oceny
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            @foreach (var p in ViewBag.Przedmioty)
+            {
+                <tr>
+                <td>@p.nazwa</td>
+                <td>
+                    @foreach (var item in Model)
+                    {
+                        if (item.Nauczanie.PrzedmiotId == p.PrzedmiotId)
+                        {<a class="ocena_przycisk" asp-controller="Oceny" asp-action="Details" asp-route-id="@item.OcenaId">@item.wartosc</a>}
+                }
+                </td>
+                </tr>
+            }
+    </tbody>
+</table>

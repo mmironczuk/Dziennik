@@ -1,0 +1,97 @@
+﻿@model Dziennik.Models.Test
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h2>Test</h2>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.nazwa)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.nazwa)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.opis)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.opis)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.czas_trwania)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.czas_trwania)
+        </dd>
+        <dt class="col-sm-2">
+            Przedmiot
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nauczanie.Przedmiot.nazwa)
+        </dd>
+        <dt class="col-sm-2">
+            Klasa
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nauczanie.Klasa.nazwa)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-warning" style="margin:5px" asp-controller="Pytania" asp-action="Create" asp-route-id="@Model.TestId">Dodaj pytanie</a>
+    <table border="1">
+        @{int numer = 1;
+        @foreach (var p in Model.Pytania)
+        {
+        <tr>
+            <td style="margin:15px" text-align:left">
+                <p><b>Pytanie nr @numer: @p.tresc</b></p>
+                <p style="color:gold"><b>pkt: @p.punkty</b></p>
+            </td>
+            <td style="margin:15px; text-align:left">
+                @if (p.poprawna == "odpA")
+                {
+                    <p style="color:green">A) @p.odpA</p>
+                }
+                else
+                {
+                    <p>A) @p.odpA</p>
+                }
+                @if (p.poprawna == "odpB")
+                {
+                    <p style="color:green">B) @p.odpB</p>
+                }
+                else
+                {
+                    <p>B) @p.odpB</p>
+                }
+                @if (p.poprawna == "odpC")
+                {
+                    <p style="color:green">C) @p.odpC</p>
+                }
+                else
+                {
+                    <p>C) @p.odpC</p>
+                }
+                @if (p.poprawna == "odpD")
+                {
+                    <p style="color:green">D) @p.odpD</p>
+                }
+                else
+                {
+                    <p>D) @p.odpD</p>
+                }
+            </td>
+        </tr>
+            numer++;
+        }
+        }
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TestId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

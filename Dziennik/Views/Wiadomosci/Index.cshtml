@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Dziennik.Models.Wiadomosc>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn btn-warning" asp-action="Create">Wyślij nową</a>
+</p>
+<div class="text-center">
+    @if (ViewBag.WiadOdebrane.Count > 0)
+    {
+        <h2 style="text-align:center; color:white;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Wiadomości odebrane:</h2>
+        @foreach (var w in ViewBag.WiadOdebrane)
+        {
+            <div class="card" style="width: 100%; margin-bottom: 1rem; background-color: gold">
+                <div class="card-body">
+                    <h5 class="card-title">@w.tytul  @if (w.czy_odczytana == 2) { <b style="color:yellow">! Nowa !</b>}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@w.data , @w.Nadawca.imie @w.Nadawca.nazwisko</h6>
+                    <p class="card-text">@w.tresc</p>
+                    <a class="btn btn-success" style="margin:5px" asp-controller="Wiadomosci" asp-action="Odpowiedz" asp-route-id="@w.WiadomoscId">Odpowiedz</a>
+                    <a class="btn btn-danger" style="margin:5px" asp-controller="Wiadomosci" asp-action="Delete" asp-route-id="@w.WiadomoscId">Usuń</a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {<h2 style="margin:20px;text-align:center; color:white;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Brak wiadomości</h2>}
+</div>
+<div class="text-center">
+    @if (ViewBag.WiadWyslane.Count > 0)
+    {
+        <h2 style="text-align:center; color:white;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Wiadomości wysłane:</h2>
+        @foreach (var w in ViewBag.WiadWyslane)
+        {
+            <div class="card" style="width: 100%; margin-bottom: 1rem; background-color: gold">
+                <div class="card-body">
+                    <h5 class="card-title">@w.tytul</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@w.data , @w.Odbiorca.imie @w.Odbiorca.nazwisko</h6>
+                    <p class="card-text">@w.tresc</p>
+                    <a class="btn btn-danger" style="margin:5px" asp-controller="Wiadomosci" asp-action="Delete" asp-route-id="@w.WiadomoscId">Usuń</a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {<h2 style="margin:20px;text-align:center; color:white;font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Brak wiadomości</h2>}
+</div>

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Dziennik.Models.Test>
+
+@{
+    ViewData["Title"] = "Wybor testow";
+}
+
+<h1>Wybór testów</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.opis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.czas_trwania)
+            </th>
+            <th>
+                Przedmiot
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nazwa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.czas_trwania)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nauczanie.Przedmiot.nazwa)
+                </td>
+                <td>
+                    <a class="btn btn btn-primary" asp-action="NastepnePytanie" asp-route-id="@item.TestId"  asp-route-points="0" asp-route-numer_pytania="1">Przystąp</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

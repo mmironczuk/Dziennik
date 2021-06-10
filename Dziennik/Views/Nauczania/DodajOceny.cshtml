@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Dziennik.Models.Konto> 
+
+@{
+    ViewData["Title"] = "Dodawanie oceny";
+}
+
+<h1 style="text-align:center">Dodawanie oceny</h1>
+<div class="justify-content-center mb-12">
+    @using (Html.BeginForm("DodajOceny", "Nauczania", FormMethod.Post))
+    {
+        <table style="text-align:center">
+            <tr>
+                <input type="hidden" name="id" value="@ViewBag.NauczanieId" />
+                <td>Data rozpoczęcia: <input type="date" name="DateFirst" style="padding:5px" /></td>
+                <td>Data zakończenia: <input type="date" name="DateSecond" style="padding:5px" /></td>
+                <td><button class="btn btn btn-primary">Sortuj</button></td>
+            </tr>
+        </table>
+    }
+</div>
+<h3 style="text-align:center; color:white">@ViewBag.Message</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Imię i nazwisko ucznia
+            </th>
+            <th>
+                Oceny
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in ViewBag.Uczniowie)
+        {
+            <tr>
+                <td>
+                    @u.imie @u.nazwisko
+                </td>
+                <td>
+                    @if (ViewBag.Oceny.Count == 0)
+                    {<p>-</p>}
+                    else
+                    {
+                        @foreach (var o in ViewBag.Oceny)
+                        {
+                            if (o.KontoId == u.Id)
+                            {<a class="ocena_przycisk" asp-controller="Oceny" asp-action="Edit" asp-route-id="@o.OcenaId">@o.wartosc</a>}
+                        }
+                    }
+                </td>
+                <td>
+                    <a asp-controller="Oceny" asp-action="Create" asp-route-NauczanieId="@ViewBag.NauczanieId" asp-route-UczenId="@u.Id">Dodaj ocenę</a>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

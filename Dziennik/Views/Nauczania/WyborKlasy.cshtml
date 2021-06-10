@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Dziennik.Models.Nauczanie>
+
+@{
+    ViewData["Title"] = "Wybór klasy";
+}
+
+<h1>Wybór klasy</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Klasa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Przedmiot)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Klasa.nazwa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Przedmiot.nazwa)
+                </td>
+                <td>
+                    <a class="btn btn btn-primary" asp-action="DodajOceny" asp-route-id="@item.NauczanieId">Dodaj oceny</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

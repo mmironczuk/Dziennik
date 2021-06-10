@@ -1,0 +1,288 @@
+﻿.card {
+    border-radius: 10px;
+    background-color: #333 !important;
+    color: #EEE !important;
+    overflow: hidden;
+}
+
+table, tr, td, body, thead, th {
+    border-color: transparent !important;
+}
+
+table {
+    margin-bottom: 0 !important;
+}
+
+.card tr:nth-child(2n) {
+    background-color: #333;
+}
+
+td, th {
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.card tr:nth-child(2n+1) {
+    background-color: #FFFFFF22 !important;
+}
+
+tr {
+    color: #EEE;
+    border-color: transparent;
+}
+
+.card thead tr {
+    background-image: linear-gradient(to bottom right,#007bff, #008cff);
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: -10vh;
+    left: -10vw;
+    width: 120vw;
+    height: 120vh;
+    background-image: url("/images/bcg.jpg");
+    filter: blur(8px);
+}
+
+
+.py-3 tr {
+    background-color: #333 !important;
+}
+
+#pbvideo{
+    width: 100%;
+}
+
+#pbvideowrapper {
+    position: fixed;
+    top: 96px;
+    left: 0px;
+    z-index: 10;
+    width: 100vw;
+    height: 100vh;
+}
+
+#napisNauczyciel {
+    top: 96px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    font-size: 4rem;
+    margin-top: 100px;
+    z-index: 11;
+    position: fixed;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0px 0px 2px 2px black;
+    -webkit-text-stroke: 2px black;
+}
+/* ANIMATIONS */
+
+
+/* Simple CSS3 Fade-in-down Animation */
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
+}
+
+/* Simple CSS3 Fade-in Animation */
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeIn {
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+}
+
+    .fadeIn.first {
+        -webkit-animation-delay: 0.4s;
+        -moz-animation-delay: 0.4s;
+        animation-delay: 0.4s;
+    }
+
+    .fadeIn.second {
+        -webkit-animation-delay: 0.6s;
+        -moz-animation-delay: 0.6s;
+        animation-delay: 0.6s;
+    }
+
+    .fadeIn.third {
+        -webkit-animation-delay: 0.8s;
+        -moz-animation-delay: 0.8s;
+        animation-delay: 0.8s;
+    }
+
+    .fadeIn.fourth {
+        -webkit-animation-delay: 1s;
+        -moz-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+/* Simple CSS3 Fade-in Animation */
+.underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: #56baed;
+    content: "";
+    transition: width 0.2s;
+}
+
+.underlineHover:hover {
+    color: #0d0d0d;
+}
+
+    .underlineHover:hover:after {
+        width: 100%;
+    }
+
+.ocena_przycisk {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    font-weight: normal !important;
+    display: inline-block;
+    padding-top: 6px;
+    width: 40px !important;
+    height: 40px !important;
+}
+
+.container {
+    position: relative;
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 0;
+    height: 100%;
+    transition: .5s ease;
+}
+
+.container:hover .overlay {
+    width: 100%;
+}
+.middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+}
+
+.container:hover .image {
+    opacity: 0.3;
+}
+
+.container:hover .middle {
+    opacity: 1;
+}
+
+.text {
+    white-space: nowrap;
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+}
+.message {
+    display: block; 
+    height: 100%; 
+    width: 100%; 
+    color: white;
+}
+.message:hover {
+    background-color: coral;
+}
+
+

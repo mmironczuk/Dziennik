@@ -1,0 +1,69 @@
+﻿@model Dziennik.Models.Pytanie
+
+@{
+    ViewData["Title"] = "Nowe pytanie";
+}
+
+<h2>Nowe pytanie</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="tresc" class="control-label"></label>
+                <input asp-for="tresc" class="form-control" />
+                <span asp-validation-for="tresc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="odpA" class="control-label"></label>
+                <input asp-for="odpA" class="form-control" />
+                <span asp-validation-for="odpA" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="odpB" class="control-label"></label>
+                <input asp-for="odpB" class="form-control" />
+                <span asp-validation-for="odpB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="odpC" class="control-label"></label>
+                <input asp-for="odpC" class="form-control" />
+                <span asp-validation-for="odpC" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="odpD" class="control-label"></label>
+                <input asp-for="odpD" class="form-control" />
+                <span asp-validation-for="odpD" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="poprawna" class="control-label"></label>
+                <select asp-for="poprawna" class="form-control">
+                    <option value="odpA">Odpowiedź A</option>
+                    <option value="odpB">Odpowiedź B</option>
+                    <option value="odpC">Odpowiedź C</option>
+                    <option value="odpD">Odpowiedź D</option>
+                </select>
+                <span asp-validation-for="poprawna" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="punkty" class="control-label"></label>
+                <input asp-for="punkty" class="form-control" min="0" max="5"/>
+                <span asp-validation-for="punkty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input asp-for="TestId" class="form-control" type="hidden" value="@ViewBag.TestId"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
