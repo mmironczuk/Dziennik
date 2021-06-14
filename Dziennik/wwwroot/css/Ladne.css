@@ -1,7 +1,7 @@
 ﻿.card {
     border-radius: 10px;
-    background-color: #333 !important;
-    color: #EEE !important;
+    /*background-color: #333 !important;*/
+    color: #333 !important;
     overflow: hidden;
 }
 
@@ -14,7 +14,7 @@ table {
 }
 
 .card tr:nth-child(2n) {
-    background-color: #333;
+    /*background-color: #333;*/
 }
 
 td, th {
@@ -27,7 +27,7 @@ td, th {
 }
 
 tr {
-    color: #EEE;
+    color: #333;
     border-color: transparent;
 }
 
@@ -35,7 +35,7 @@ tr {
     background-image: linear-gradient(to bottom right,#007bff, #008cff);
 }
 
-body::before {
+/*body::before {
     content: "";
     position: fixed;
     top: -10vh;
@@ -44,11 +44,11 @@ body::before {
     height: 120vh;
     background-image: url("/images/bcg.jpg");
     filter: blur(8px);
-}
+}*/
 
 
 .py-3 tr {
-    background-color: #333 !important;
+    /*background-color: #333 !important;*/
 }
 
 #pbvideo{
@@ -266,7 +266,7 @@ body::before {
 
 .text {
     white-space: nowrap;
-    color: white;
+    /*color: white;*/
     font-size: 25px;
     position: absolute;
     overflow: hidden;
@@ -279,7 +279,7 @@ body::before {
     display: block; 
     height: 100%; 
     width: 100%; 
-    color: white;
+    /*color: white;*/
 }
 .message:hover {
     background-color: coral;

@@ -5,20 +5,19 @@
     ViewData["Title"] = "Logowanie";
 }
 
-<h1 style="color:white; padding:15px; text-align:center">@ViewData["Title"]</h1>
-<div class="row" style="background-image: url('/images/loginbackground.jpg'); background-size: 100% auto; text-align: center">
+<h1 style="padding:15px; text-align:center">@ViewData["Title"]</h1>
+<div class="row" style="background: #eee/*-image: url('/images/loginbackground.jpg')*/; border: 1px solid black; border-radius: 15px; background-size: 100% auto; text-align: center">
     <div class="col-12 ">
         <section>
             <form id="account" method="post">
-                <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.Email" class="control-label" style="color:white"></label>
+                    <label asp-for="Input.Email" class="control-label"></label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password" class="control-label" style="color:white"></label>
+                    <label asp-for="Input.Password" class="control-label"></label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
